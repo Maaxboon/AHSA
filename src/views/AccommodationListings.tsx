@@ -1,16 +1,35 @@
-import FilterBar from "../components/FilterBar";
-import ListingsContainer from "../components/ListingsContainer";
+import React from "react";
 
-// const Header = () => <>IM HEADER</>;
-// const Search = () => <>IM SEARCH</>;
-// const Listings = () => <>IM LISTINGS</>;
+const AccommodationListings = () => {
+  const accommodations = [
+    {
+      id: 1,
+      name: "Green Apartments",
+      location: "Kigali",
+      price: "$200/month",
+    },
+    {
+      id: 2,
+      name: "Blue Villas",
+      location: "Kigali Heights",
+      price: "$300/month",
+    },
+  ];
 
-export default function AccommodationListings() {
   return (
     <div>
       <h1>Accommodation Listings</h1>
-      <FilterBar />
-      <ListingsContainer />
+      <ul>
+        {accommodations.map((accommodation) => (
+          <li key={accommodation.id}>
+            <h2>{accommodation.name}</h2>
+            <p>{accommodation.location}</p>
+            <p>{accommodation.price}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default AccommodationListings;
